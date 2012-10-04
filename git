@@ -1,0 +1,31 @@
+git config --global user.name "Your Name Here"
+git config --global user.email "your_email@youremail.com"
+缓存密码
+git config --global credential.helper cache  缓存密码
+修改密码缓存时间，默认15min
+git config --global credential.helper 'cache --timeout=3600'  
+
+gitignore
+1.每个目录下都可以设置  .gitignore
+
+2.Global .gitignore
+git config --global core.excludesfile ~/.gitignore_global
+
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+3. Repo exclude
+.git/info/exclude   这个文件不与别人共享，所以别人clone后，就没有这个规则了
+https://help.github.com/articles/ignoring-files
