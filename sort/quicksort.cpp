@@ -47,13 +47,37 @@ void quicksort1(int *a, int start, int end){
 			swap(a[++less], a[cur]);
 	}
 	swap(a[start], a[less]);
-	quicksort(a, start, less-1);
-	quicksort(a, less+1, end);
+	quicksort1(a, start, less-1);
+	quicksort1(a, less+1, end);
+}
+
+void quicksort2(int *a, int start, int end){
+	if(start >= end)
+		return;
+	int l = start+1;
+	int h = end;
+	int key = a[start];
+
+	while(l!=h){
+		if(a[l]<=key)
+			l++;
+		else{
+			while(l!=h && a[h]>key)
+				h--;
+			swap(a[l], a[h]);
+		}
+	}
+	if(a[l]>key)
+		l--;
+	swap(a[start], a[l]);
+	printA(a, 8);
+	quicksort2(a, start, l-1);
+	quicksort2(a, l+1, end);
 }
 
 int main(){
 	int a[] = {3,0,2,8,0,9,1,0};
-	quicksort1(a, 0, 7);
-	printA(a, 8);
+	quicksort2(a, 0, 7);
+//	printA(a, 8);
 	return 0;
 }
