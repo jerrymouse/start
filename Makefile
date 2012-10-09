@@ -5,7 +5,7 @@ AR      =ar
 
 
 
-CFLAGS =  -g -Wall -pedantic -std=c++0x
+CFLAGS =  -g -Wall -pedantic #-std=c++0x
 CFLAGS += 
 LDFLAGS = 
 SRCS	=  $(wildcard *.cpp)
